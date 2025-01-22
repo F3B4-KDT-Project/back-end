@@ -1,18 +1,19 @@
 spring:
   datasource:
-    driver-class-name: org.h2.Driver  # H2 드라이버 사용
-    url: jdbc:h2:tcp://localhost/~/test  # 인메모리 H2 DB 사용 (테스트용)
-    username: sa      # 기본 사용자명
-    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://13.125.217.93:3306/kdt  # 변경 필요
+    username: kdt  # 변경 필요
+    password: 1234  # 변경 필요
   jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     open-in-view: false
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
     properties:
       hibernate:
         format_sql: true
-    database-platform: org.hibernate.dialect.H2Dialect  # H2Dialect 설정
+        use_sql_comments: true
 jwt:
   secret:
     key: 780f7e25c9e36b276459459a13b081bbe121af603c2d039b4228739a690d399c75386d3d89f63a099ba817e3764fbf1c7bf744c060c24d2e812e10d511cc3b64
