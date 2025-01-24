@@ -2,29 +2,26 @@ package kdt.web_ide.chat.entity;
 
 import jakarta.persistence.*;
 import kdt.web_ide.members.entity.Member;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Builder
-@Table(name = "Chat_Message_Read_Status")
-public class ChatMessageReadStatus {
+public class ChatRoomMember {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long chatMessageReadStatusId;
+    private Long id;
 
     @Setter
     @Column(nullable = false)
-    @ColumnDefault("false")
-    private Boolean isRead;
+    @ColumnDefault("0")
+    private Integer notReadCount;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "chat_message_id")
-    private ChatMessage chatMessage;
+    @JoinColumn(name = "chat_room_id")
+    private ChatRoom chatRoom;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")

@@ -1,16 +1,16 @@
 package kdt.web_ide.chat.entity;
 
-
 import jakarta.persistence.*;
 import kdt.web_ide.members.entity.Member;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @Builder
 @Table(name = "Chat_Message")
 public class ChatMessage {
@@ -19,8 +19,11 @@ public class ChatMessage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long chatMessageId;
 
+    @Column(columnDefinition = "LONGTEXT")
     private String messageText;
 
+    @CreatedDate
+    @Column(updatable = false)
     private LocalDateTime sendTime;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -15,7 +15,11 @@ public enum ErrorCode {
 
     INVALID_EMAIL(HttpStatus.BAD_REQUEST, "ACCOUNT-005", "비밀번호가 일치하지 않습니다."),
     INVALID_TOKEN(HttpStatus.UNAUTHORIZED, "ACCOUNT-006", "유효하지 않은 토큰입니다."),
-    TOKEN_EXPIRED(HttpStatus.BAD_REQUEST, "ACCOUNT-007", "토큰이 만료되었습니다." );
+    TOKEN_EXPIRED(HttpStatus.BAD_REQUEST, "ACCOUNT-007", "토큰이 만료되었습니다." ),
+
+    CHATROOM_NOT_FOUND(HttpStatus.NOT_FOUND, "ACCOUNT-008", "채팅방을 찾을 수 없습니다.");
+
+
     private final HttpStatus httpStatus;	// HttpStatus
     private final String code;				// ACCOUNT-001
     private final String message;			// 설명

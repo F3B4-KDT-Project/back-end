@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/your_database_name?serverTimezone=Asia/Seoul&characterEncoding=UTF-8  # 변경 필요
-    username: your_mysql_username  # 변경 필요
-    password: your_mysql_password  # 변경 필요
+    url: jdbc:mysql://13.125.217.93:3306/kdt  # 변경 필요
+    username: kdt  # 변경 필요
+    password: 1234  # 변경 필요
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     open-in-view: false
