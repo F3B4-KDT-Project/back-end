@@ -12,7 +12,7 @@ public class ChatRoomMember {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long ChatRoomMemberId;
 
     @Setter
     @Column(nullable = false)

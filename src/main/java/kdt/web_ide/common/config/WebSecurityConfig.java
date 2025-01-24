@@ -63,7 +63,7 @@ public class WebSecurityConfig {
                                 "/swagger-resources/**",
                                 "/webjars/**"
                         ).permitAll()
-                        .requestMatchers("/api/auth/**", "/chatting/**").permitAll()
+                        .requestMatchers("/api/auth/**", "/chatting/**", "/api/chat/room").permitAll()
                         //  인증이 필요한 경로 (JWT 필요)
                         .requestMatchers("/admin/**").hasRole("ADMIN") // 관리자 페이지 권한 설정
                         .anyRequest().authenticated() // 그 외 모든 요청은 인증 필요

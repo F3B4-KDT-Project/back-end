@@ -17,7 +17,7 @@ public record GetChatMessageResponseDto(String messageText,
                 .messageText(chatMessage.getMessageText())
                 .sendTime(chatMessage.getSendTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .memberId(chatMessage.getSender().getMemberId())
-                .name(chatMessage.getSender().getName())
+                .name(chatMessage.getSender().getNickName())
                 .profileImage(chatMessage.getSender().getProfileImage())
                 .build();
     }
