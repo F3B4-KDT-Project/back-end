@@ -26,7 +26,6 @@ import java.util.concurrent.CompletableFuture;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class ChatService {
 
     private final ChatRoomRepository chatRoomRepository;
@@ -42,8 +41,6 @@ public class ChatService {
     public void sendMessage(Long chatRoomId, String messageText) {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        log.info(authentication.getName());
 
         ChatRoom chatRoom = chatRoomRepository.findById(chatRoomId)
                 .orElseThrow(() -> new CustomException(ErrorCode.CHATROOM_NOT_FOUND));
