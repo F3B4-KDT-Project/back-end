@@ -62,7 +62,8 @@ public class WebSecurityConfig {
                         "/v3/api-docs/**",
                         "/swagger-resources/**",
                         "/webjars/**",
-                        "/health")
+                        "/health",
+                        "/actuator/**")
                     .permitAll()
                     .requestMatchers("/api/auth/**", "/chatting/**", "/api/chat/room")
                     .permitAll()
