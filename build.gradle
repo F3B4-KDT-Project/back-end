@@ -108,6 +108,13 @@ dependencies {
 	//s3
 	implementation 'io.awspring.cloud:spring-cloud-aws-starter:3.1.1'
 	implementation 'software.amazon.awssdk:s3:2.20.40'
+
+	// actuator
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+	// prometheus
+	implementation 'io.micrometer:micrometer-registry-prometheus'
+
 }
 
 tasks.named('test') {

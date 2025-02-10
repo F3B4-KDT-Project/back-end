@@ -1,13 +1,52 @@
 {
-  "AWSEBDockerrunVersion": "1",
-  "Image": {
-    "Name": "groomkdt/kdt:latest",
-    "Update": "true"
-  },
-  "Ports": [
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
     {
-      "ContainerPort": 8080,
-      "HostPort": 5000
+      "name": "app",
+      "image": "groomkdt/kdt:latest",
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 5000
+        }
+      ]
+    },
+    {
+      "name": "prometheus",
+      "image": "prom/prometheus:latest",
+      "portMappings": [
+        {
+          "containerPort": 9090,
+          "hostPort": 9090
+        }
+      ],
+      "command": [
+        "--config.file=/etc/prometheus/prometheus.yml"
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "prometheus-storage",
+          "containerPath": "/etc/prometheus"
+        }
+      ]
+    },
+    {
+      "name": "grafana",
+      "image": "grafana/grafana:latest",
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000
+        }
+      ]
+    }
+  ],
+  "volumes": [
+    {
+      "name": "prometheus-storage",
+      "host": {
+        "sourcePath": "/var/app/current/prometheus.yml"
+      }
     }
   ]
 }
